@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все люди</title>
+</head>
+<body>
+<!--используем некое подобие цикла в thymeleaf; ${people} - наша коллекция и ей даём имя person  -->
+<div th:each="person : ${people}">
+<!--Делаем ссылку, что бы по каждому имени человека перейти на его страницу-->
+    <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getName()}">user</a>
+</div>
+</body>
+</html>
