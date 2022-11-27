@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Все люди</title>
+    <title>Index</title>
 </head>
 <body>
 <!--используем некое подобие цикла в thymeleaf; ${people} - наша коллекция и ей даём имя person  -->
@@ -10,5 +10,12 @@
 <!--Делаем ссылку, что бы по каждому имени человека перейти на его страницу-->
     <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getName()}">user</a>
 </div>
+
+<!--Создаёт пустую строку(отступ)-->
+<br/>
+<!--Создает горизонтальную линию, которая будет отделять всех людей от кнопки создания нового человека -->
+<hr/>
+<!--Создали новую кнопку и ссылку на неё-->
+<a href="/people/new">Create new person</a>
 </body>
 </html>
