@@ -1,6 +1,5 @@
 package ru.poplaukhin.springcourse.models;
 
-
 import javax.validation.constraints.*;
 
 public class Person {
@@ -10,10 +9,10 @@ public class Person {
     private String name;
 
     @Min(value = 0, message = "Age should be greater than 0")
-    @Max(value = 100, message = "Age should be greater than 100")
+    @Max(value = 100, message = "Age must be less than 100")
     private int age;
     @NotEmpty(message = "Email should not be empty")
-    @Email(message = "Email should be valid") // проверяет валидность email
+    @Email(message = "Email should be valid")
     private String email;
 
     public Person(int id, String name, int age, String email) {

@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+<!--Форма получения человека по его id и создание кнопки Delete-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Человек</title>
+    <title>Person id</title>
 </head>
 <body>
-<p th:text="${person.getName()}">VALUE</p>
-<p th:text="${person.getId()}">VALUE</p>
-<p th:text="${person.getEmail()}">VALUE</p>
+<p th:text="${person.name}">VALUE1</p>
+<p th:text="${person.id}">VALUE2</p>
+<p th:text="${person.email}">VALUE3</p>
 
-<a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>
+<a th:href="@{/people/{id}/edit(id=${person.id})}"><button style="background-color: plum">Edit</button></a>
 
-<form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+<form th:method="DELETE" th:action="@{/people/{id}(id=${person.id})}">
     <input type="submit" value="Delete"/>
 </form>
 
