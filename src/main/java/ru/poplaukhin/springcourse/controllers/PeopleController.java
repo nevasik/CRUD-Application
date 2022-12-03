@@ -7,7 +7,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.poplaukhin.springcourse.dao.PersonDAO;
 import ru.poplaukhin.springcourse.models.Person;
-
 import javax.validation.Valid;
 
 @Controller

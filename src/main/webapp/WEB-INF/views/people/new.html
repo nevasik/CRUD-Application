@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--Форма создания нового человека-->
+<!-- Форма создания нового человека -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -7,11 +7,11 @@
 </head>
 <body>
 
-<!--method - с каким HTTP методом будет отправляться; action - на какой URL эта форма будет передавать свои данные; object - указывается ключ который мы положили в controller-->
+<!-- method - с каким HTTP методом будет отправляться; action - на какой URL эта форма будет передавать свои данные; object - указывается ключ который мы положили в controller -->
 <form th:method="POST" th:action="@{/people}" th:object="${person}">
     <label for="name">Enter name:</label>
     <input type="text" th:field="*{name}" id="name"/>
-<!--    Написали условие, что если есть в поле 'name' есть ошибка то, наш тег будет отображаться-->
+<!-- Написали условие, что если есть в поле 'name' есть ошибка то, наш тег будет отображаться -->
     <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
     <br/>
 
