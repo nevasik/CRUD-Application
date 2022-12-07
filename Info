@@ -24,8 +24,8 @@ public String edit(Model model, @PathVariable("id") int id) {
 
 
 Связь Java приложения с БД:
- - Jdbc API - самый низкоуровневый(делаем всё вручную)
- - JdbcTemplate - тонкая обёртка вокруг Jdbc API. Часть Spring Framework(Берёт часть дел на себя)
+ - Jdbc API - самый низкоуровневый(делаем всё вручную) - сделали
+ - JdbcTemplate - тонкая обёртка вокруг Jdbc API. Часть Spring Framework(Берёт часть дел на себя) - сделали
  - Hibernate - Самый высокий уровень абстракции. Автоматически переводит Java объекты в строки таблицы и наоборот. Может автоматом создавать таблицы в БД(это называется ORM)
 
 DDL команды - команды, где работаем именно с самой СУБД(CREATE, DROP и т.д.)
@@ -36,3 +36,14 @@ PreparedStatement работает быстрее чем обычный Statemen
  - Statement - SQL запрос компилируется каждый раз
 
 PreparedStatement - один раз скомпилировал, перевёл в машинный код и затем он в этот машинный код вставляет значения, которые мы задали(в полях)
+
+RowMapper - отображает строки из таблицы в нашей сущности(в нашем случае Person)
+
+RowMapper мы указываем в запросах: jdbcTemplate.query
+* return jdbcTemplate.query("SELECT * FROM Person", new BeanPropertyRowMapper<>(Person.class));
+
+А когда мы делаем jdbcTemplate.update(...) то RowMapper мы не используем
+* jdbcTemplate.update("INSERT INTO Person VALUES(1, ?, ?, ?)", person.getName(), person.getAge(),
+                 person.getEmail());
+
+@PropertySource() - указываем, путь до файла с ресурсами
