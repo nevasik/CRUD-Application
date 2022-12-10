@@ -20,7 +20,7 @@ public class PeopleController {
     @GetMapping()
     public String index(Model model) { // получим всех людей из DAO и передадим на отображение в представлении(View)
         model.addAttribute("people", personDAO.index());
-        return "people/index";
+        return "batch/index";
     }
     @GetMapping("/{id}") // Получим одного человека по его id из DAO и передадим этого человека на отображение в представление(View)
     public String show(@PathVariable("id") int id, Model model) {
