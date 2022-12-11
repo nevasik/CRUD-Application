@@ -3,9 +3,17 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.45">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>3826</IntrospectionStateNumber>
+      <Grants>1||-9223372036854775808|c|G
+1||10|c|G
+1||10|C|G
+1||10|T|G
+4||-9223372036854775808|c|G
+4||10|c|G
+4||10|C|G
+4||10|T|G</Grants>
+      <IntrospectionStateNumber>3828</IntrospectionStateNumber>
       <ServerVersion>15.1</ServerVersion>
-      <StartupTime>1670396596</StartupTime>
+      <StartupTime>1670656052</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1397,7 +1405,7 @@ false posixrules
 13228||10|C|G
 13228||-9223372036854775808|U|G
 13228||10|U|G</Grants>
-      <IntrospectionStateNumber>3826</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3828</IntrospectionStateNumber>
       <ObjectId>16389</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4830,7 +4838,7 @@ false posixrules
     <schema id="263" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>3826</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3828</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>517</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -8186,5 +8194,45 @@ false posixrules
       <StateNumber>517</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
+    <sequence id="508" parent="263" name="person_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>16414</ObjectId>
+      <StateNumber>3827</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <table id="509" parent="263" name="person">
+      <ObjectId>16415</ObjectId>
+      <StateNumber>3827</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="510" parent="509" name="id">
+      <DasType>integer|0s</DasType>
+      <IdentityKind>by-default</IdentityKind>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>3827</StateNumber>
+      <SequenceId>16414</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="511" parent="509" name="name">
+      <DasType>varchar|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>3827</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="512" parent="509" name="age">
+      <DasType>integer|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>3827</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="513" parent="509" name="email">
+      <DasType>varchar|0s</DasType>
+      <Position>4</Position>
+      <StateNumber>3827</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
   </database-model>
 </dataSource>

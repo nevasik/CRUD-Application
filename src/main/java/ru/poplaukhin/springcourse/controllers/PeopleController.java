@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import ru.poplaukhin.springcourse.dao.PersonDAO;
 import ru.poplaukhin.springcourse.models.Person;
 import javax.validation.Valid;
-
 @Controller
 @RequestMapping("/people")
 public class PeopleController {
@@ -20,7 +19,7 @@ public class PeopleController {
     @GetMapping()
     public String index(Model model) { // получим всех людей из DAO и передадим на отображение в представлении(View)
         model.addAttribute("people", personDAO.index());
-        return "batch/index";
+        return "people/index";
     }
     @GetMapping("/{id}") // Получим одного человека по его id из DAO и передадим этого человека на отображение в представление(View)
     public String show(@PathVariable("id") int id, Model model) {

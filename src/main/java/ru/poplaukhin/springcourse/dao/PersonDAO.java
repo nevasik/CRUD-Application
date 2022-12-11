@@ -6,9 +6,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.poplaukhin.springcourse.models.Person;
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 @Component
 public class PersonDAO {
@@ -19,6 +18,7 @@ public class PersonDAO {
     }
 
     public List<Person> index() { // вывод всей коллекции людей
+
         return jdbcTemplate.query("SELECT * FROM Person", new BeanPropertyRowMapper<>(Person.class));
     }
     public Person show(int id) { // вытягиваем человека по его id

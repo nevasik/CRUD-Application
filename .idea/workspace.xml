@@ -10,14 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab30552e-fa2f-4005-a83d-854db261e5c2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/poplaukhin/springcourse/controllers/BatchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8c529139-adea-4261-ab08-d35a674dd63d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8c529139-adea-4261-ab08-d35a674dd63d.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8c529139-adea-4261-ab08-d35a674dd63d/storage_v2/_src_/database/first_db.bWA53w/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8c529139-adea-4261-ab08-d35a674dd63d/storage_v2/_src_/database/first_db.bWA53w/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Info" beforeDir="false" afterPath="$PROJECT_DIR$/Info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/poplaukhin/springcourse/controllers/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/poplaukhin/springcourse/controllers/PeopleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/poplaukhin/springcourse/dao/PersonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/poplaukhin/springcourse/dao/PersonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/batch/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/poplaukhin/springcourse/dao/PersonMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/batch/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/hiupupvb.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +60,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/nevasik/Desktop/CRUD/CRUDApplication/src/main/webapp/WEB-INF/views/front&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -75,6 +77,10 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/front" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/batch" />
     </key>
@@ -292,6 +298,9 @@
       <workItem from="1670395438094" duration="228000" />
       <workItem from="1670396807108" duration="4368000" />
       <workItem from="1670506386939" duration="8000" />
+      <workItem from="1670687050939" duration="4190000" />
+      <workItem from="1670715760874" duration="1019000" />
+      <workItem from="1670716800983" duration="215000" />
     </task>
     <servers />
   </component>
