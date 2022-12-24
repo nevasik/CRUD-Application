@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <!-- Форма получения человека по его id и создание кнопки Delete -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Person id</title>
+    <title>Show</title>
 </head>
+
 <body>
+<!-- <p> - пишется обычно текст -->
 <p th:text="${person.name}">VALUE1</p>
 <p th:text="${person.id}">VALUE2</p>
 <p th:text="${person.email}">VALUE3</p>
+<p th:text="${person.address}">VALUE4</p>
 
 <a th:href="@{/people/{id}/edit(id=${person.id})}"><button style="background-color: plum">Edit</button></a>
 

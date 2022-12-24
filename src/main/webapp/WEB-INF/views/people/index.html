@@ -5,12 +5,16 @@
     <title>Index</title>
 </head>
 <body>
+<!--В теге div мы просто пихаем другие блоки html-->
+<!-- <a></a> - это ссылка, где можем указать текст/картинки -->
 
 <div th:each="person : ${people}">
     <a th:href="@{/people/{id}(id=${person.getId()})}"
        th:text="${person.getName() + ', ' + person.getAge()}">user</a>
 </div>
 
+<!-- <br/> Что бы пропустить строку-->
+<!-- <hr/> - добавить разделяющую линию на всю страницу-->
 <br/>
 <hr/>
 

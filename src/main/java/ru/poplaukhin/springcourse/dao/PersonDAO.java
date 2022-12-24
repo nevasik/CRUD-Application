@@ -1,14 +1,12 @@
 package ru.poplaukhin.springcourse.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.poplaukhin.springcourse.models.Person;
 import java.util.List;
-import java.util.Scanner;
-
+import java.util.Optional;
 @Component
 public class PersonDAO {
     private final JdbcTemplate jdbcTemplate;
@@ -18,16 +16,19 @@ public class PersonDAO {
     }
 
     public List<Person> index() { // вывод всей коллекции людей
-
         return jdbcTemplate.query("SELECT * FROM Person", new BeanPropertyRowMapper<>(Person.class));
     }
+    public Optional<Person> show(String address) {
+        return jdbcTemplate.query("SELECT * FROM person WHERE address=?", new Object[]{address},
+                new BeanPropertyRowMapper<>(Person.class)).stream().findAny(); // сделали в этой строке условие, что если человек не найден, будет null
+    }
     public Person show(int id) { // вытягиваем человека по его id
-        return jdbcTemplate.query("SELECT * FROM Person WHERE id=?", new Object[]{id}, new BeanPropertyRowMapper<>(Person.class))
-                .stream().findAny().orElse(null); // сделали в этой строке условие, что если человек не найден, будет null
+        return jdbcTemplate.query("SELECT * FROM person WHERE id=?", new Object[]{id},
+                        new BeanPropertyRowMapper<>(Person.class)).stream().findAny().orElse(null);
     }
     public void save(Person person) { // сохранение человека
-        jdbcTemplate.update("INSERT INTO Person(name, age, email) VALUES(?, ?, ?)", person.getName(), person.getAge(),
-                person.getEmail());
+        jdbcTemplate.update("INSERT INTO Person(name, age, email, address) VALUES(?, ?, ?, ?)", person.getName(), person.getAge(),
+                person.getEmail(), person.getAddress());
     }
     public void update(int id, Person updatePerson) { // обновление(перезапись) человека
         jdbcTemplate.update("UPDATE Person SET name=?, age=?, email=? WHERE id=?",
@@ -36,6 +37,14 @@ public class PersonDAO {
     public void delete(int id) { // удаление
         jdbcTemplate.update("DELETE FROM Person WHERE id=?", id);
     }
+}
+
+
+
+
+
+
+
 
 //    public void testMultipleUpdate() {
 //        List<Person> people = create1000People();
@@ -86,5 +95,3 @@ public class PersonDAO {
     ////////////////////////////////////
     ////////// Тестируем производительность пакетное вставки
     ////////////////////////////////////
-
-}

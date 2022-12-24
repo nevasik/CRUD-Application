@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administration</title>
+</head>
+<body>
+
+<!--Мы должны приписать к url в action куда будет слаться запрос и в Контроллере создать метод для обработки этого запроса-->
+<form th:method="PATCH" th:action="@{/admin/add}">
+<!--    Тут сделали так, что бы была надпись перед этим выбором списка человека в роли админа-->
+    <label for="person">Select person:</label>
+    <select th:object="${person}" th:field="*{id}" id="person">
+<!--         Использовали обычный for each и все эти значения лежат во временной переменной <person>-->
+<!--         Сделали что бы можно было выбирать из имён каждого человека, но отправка на сервер будет идти их id-->
+        <option th:each="person : ${people}" th:value="${person.getId()}"
+        th:text="${person.getName()}"></option>
+    </select>
+
+    <input type="submit" value="Appoint as administrator"/>
+
+</form>
+
+</body>
+</html>

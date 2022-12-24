@@ -5,7 +5,7 @@ import javax.validation.constraints.*;
 public class Person {
     private int id;
     @NotEmpty(message = "Name should not be empty") // обеспечивает, что бы name не было пустым или null
-    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
+    @Size(min = 2, max = 60, message = "Name should be between 2 and 60 characters")
     private String name;
 
     @Min(value = 0, message = "Age should be greater than 0")
@@ -15,15 +15,19 @@ public class Person {
     @Email(message = "Email should be valid")
     private String email;
 
-    public Person(int id, String name, int age, String email) {
+    // Страна, Город, почтовый индекс(6 цифр) * Russia, Moscow, 123456
+    @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+, \\d{6}", message = "Your address should be in this format^ Country, City, Postal Code (6 digits)") // задаём регулярное выражение
+    private String address;
+
+    public Person() {
+    }
+    public Person(int id, String name, int age, String email, String address) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.email = email;
+        this.address = address;
     }
-    public Person() {
-    }
-
     public int getId() {
         return id;
     }
@@ -54,5 +58,13 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

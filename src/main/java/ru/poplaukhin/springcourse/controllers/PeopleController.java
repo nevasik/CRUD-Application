@@ -7,14 +7,17 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.poplaukhin.springcourse.dao.PersonDAO;
 import ru.poplaukhin.springcourse.models.Person;
+import ru.poplaukhin.springcourse.util.PersonValidator;
 import javax.validation.Valid;
 @Controller
 @RequestMapping("/people")
 public class PeopleController {
     private final PersonDAO personDAO;
+    private final PersonValidator personValidator;
     @Autowired
-    public PeopleController(PersonDAO personDAO) {
+    public PeopleController(PersonDAO personDAO, PersonValidator personValidator) {
         this.personDAO = personDAO;
+        this.personValidator = personValidator;
     }
     @GetMapping()
     public String index(Model model) { // получим всех людей из DAO и передадим на отображение в представлении(View)
@@ -33,9 +36,12 @@ public class PeopleController {
     @PostMapping() // будет создавать нового пользователя и добавлять его в DAO
     public String create(@ModelAttribute("person") @Valid Person person, // что бы создать new Person() и положить в него данные с формы мы используем @ModelAttribute и проверяем Валидность
                          BindingResult bindingResult) {
+        personValidator.validate(person, bindingResult);
+
         if (bindingResult.hasErrors()) {
             return "people/new";
         }
+
         personDAO.save(person);
         return "redirect:/people";
     }
@@ -45,11 +51,14 @@ public class PeopleController {
         return "people/edit";
     }
     @PatchMapping("/{id}") // информация о user и возможность удалить или перезаписать
-    public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult,
-                         @PathVariable("id") int id) {
+    public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult, @PathVariable("id") int id) {
+
+        personValidator.validate(person, bindingResult);
+
         if (bindingResult.hasErrors()) {
             return "people/edit";
         }
+
         personDAO.update(id, person);
         return "redirect:/people";
     }
